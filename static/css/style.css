@@ -1,0 +1,108 @@
+/* -------------------------------
+   Global Layout
+--------------------------------*/
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* -------------------------------
+   Header
+--------------------------------*/
+header {
+    text-align: center;
+    padding: 10px 0;
+}
+
+header h1 {
+    font-size: 1.4rem;
+    margin: 5px 0;
+}
+
+/* -------------------------------
+   Video Stream
+--------------------------------*/
+.video-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* -------------------------------
+   Status Cards
+--------------------------------*/
+.status-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 140px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card.occupied {
+    background-color: #ffe5e5;
+    color: #b30000;
+}
+
+.card.available {
+    background-color: #e5ffe5;
+    color: #006600;
+}
+
+.card span {
+    display: block;
+    font-size: 1.6rem;
+    margin-top: 5px;
+}
+
+/* -------------------------------
+   Footer
+--------------------------------*/
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 15px;
+    color: #666;
+}
+
+/* -------------------------------
+   Responsive Adjustments
+--------------------------------*/
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .card span {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .status-container {
+        flex-direction: column;
+    }
+}

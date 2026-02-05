@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Slot Detection</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #counts { margin-top: 10px; font-size: 18px; }
+        img { border: 2px solid #333; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Real-Time Parking Slot Detection</h2>
+  <!-- Live Counts -->
+    <div id="counts">
+        Occupied: <span id="occupied-count">0</span> |
+        Available: <span id="available-count">0</span>
+    </div>
+    <!-- Video Feed -->
+    <img id="video-feed" src="/video" width="800">
+  
+    <script>
+        async function updateCounts() {
+            try {
+                const res = await fetch('/count');
+                const data = await res.json();
+                document.getElementById('occupied-count').textContent = data.occupied;
+                document.getElementById('available-count').textContent = data.available;
+            } catch (err) {
+                console.error("Error fetching counts:", err);
+            }
+        }
+
+        // Update counts every 1 second
+        setInterval(updateCounts, 1000);
+        updateCounts(); // Initial call
+    </script>
+</body>
+</html>
